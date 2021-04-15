@@ -39,12 +39,13 @@
           ngModel
           #nameRef="ngModel"
           required
+          minlength="3"
         />
         <div
           class="alert alert-danger"
-          *ngIf="nameRef.dirty && nameRef.invalid"
+          *ngIf="nameRef.dirty && nameRef.invalid && nameRef.errors?.minlength"
         >
-          name is Required
+          name is Required and at least 3 letters
         </div>
       </div>
 
@@ -58,12 +59,13 @@
           ngModel
           #emailRef="ngModel"
           required
+          email
         />
         <div
           class="alert alert-danger"
-          *ngIf="emailRef.dirty && emailRef.invalid"
+          *ngIf="emailRef.dirty && emailRef.invalid && emailRef.errors?.email"
         >
-          email is Required
+          email is Required and not valid.
         </div>
       </div>
     </div>

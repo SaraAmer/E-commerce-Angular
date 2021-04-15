@@ -40,10 +40,14 @@
           #nameRef="ngModel"
           required
         />
+        <div
+          class="alert alert-danger"
+          *ngIf="nameRef.dirty && nameRef.invalid"
+        >
+          name is Required
+        </div>
       </div>
-      <div class="alert alert-danger" *ngIf="nameRef.dirty && nameRef.invalid">
-        name is Required
-      </div>
+
       <div class="form-group col-md-6">
         <label>Email*</label>
         <input
@@ -55,12 +59,12 @@
           #emailRef="ngModel"
           required
         />
-      </div>
-      <div
-        class="alert alert-danger"
-        *ngIf="emailRef.dirty && emailRef.invalid"
-      >
-        email is Required
+        <div
+          class="alert alert-danger"
+          *ngIf="emailRef.dirty && emailRef.invalid"
+        >
+          email is Required
+        </div>
       </div>
     </div>
     <div class="form-group">
@@ -73,10 +77,11 @@
         #subRef="ngModel"
         required
       />
+      <div class="alert alert-danger" *ngIf="subRef.dirty && subRef.invalid">
+        subject is Required
+      </div>
     </div>
-    <div class="alert alert-danger" *ngIf="subRef.dirty && subRef.invalid">
-      subject is Required
-    </div>
+
     <div class="form-group">
       <label for="exampleFormControlTextarea3">Message*</label>
       <textarea
@@ -88,9 +93,9 @@
         #msgRef="ngModel"
         required
       ></textarea>
-    </div>
-    <div class="alert alert-danger" *ngIf="msgRef.dirty && msgRef.invalid">
-      message is Required
+      <div class="alert alert-danger" *ngIf="msgRef.dirty && msgRef.invalid">
+        message is Required
+      </div>
     </div>
 
     <button

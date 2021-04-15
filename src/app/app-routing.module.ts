@@ -5,10 +5,10 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
-  {path : "home" , component:ProductsComponent},
+ 
 {path: "about" , component: AboutComponent},
 {path: "contact" , component : ContactUsComponent},
-  { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) }];
+{ path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

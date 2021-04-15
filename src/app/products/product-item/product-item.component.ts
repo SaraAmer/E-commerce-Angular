@@ -7,9 +7,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProductItemComponent implements OnInit {
 @Input() product;
-  constructor() { }
+
+  constructor() {
+
+   }
 
   ngOnInit(): void {
   }
+card(){
 
+let product =[];
+product =[this.product.Name , this.product.Price , this.product.ProductPicUrl]
+  localStorage.setItem(`${this.product.ProductId}` , JSON.stringify(product));
+
+}
 }

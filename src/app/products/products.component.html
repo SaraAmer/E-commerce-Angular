@@ -1,36 +1,6 @@
-<!-- <ul class="list-group">
-    <li  *ngFor="let product of products">
-   {{product.ProductId}}
-    </li>
-  </ul> -->
-  <div class="container">
-    <div class="d-flex flex-row-reverse bd-highlight mb-2">
-      <div class="p-2 bd-highlight">
-        <select (change)="onTableSizeChange($event)" class="custom-select">
-          <option *ngFor="let size of tableSizes" ngValue="size">
-            {{ size }}
-          </option>
-        </select>
-      </div>
-    </div>
-  <div class="card-group">
-    <app-product-item *ngFor="let product of products | paginate : {
-      itemsPerPage: tableSize,
-      currentPage: page,
-      totalItems: count
-  };" 
-    [product] ="product" >
-  </app-product-item>
-  </div>
 
-  <div class="d-flex justify-content-center">
-    <pagination-controls 
-      responsive="true" 
-      previousLabel="Prev" 
-      nextLabel="Next" 
-      (pageChange)="onTableDataChange($event)">
-    </pagination-controls>
-  </div>
-</div>
-  
+
+
+  <router-outlet></router-outlet>
+
 

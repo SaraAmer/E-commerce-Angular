@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatMenuModule,
+    HttpClientModule
     
    
     

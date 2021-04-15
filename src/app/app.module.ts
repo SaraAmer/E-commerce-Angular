@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -18,17 +20,19 @@ import { HttpClientModule } from '@angular/common/http';
     
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatMenuModule,
-    HttpClientModule
-    
-   
+    HttpClientModule,
     
 
   ],
   providers: [],
   bootstrap: [AppComponent]
+  ,
+  exports: [NgxPaginationModule]
 })
+
 export class AppModule { }

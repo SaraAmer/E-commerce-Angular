@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -12,8 +13,10 @@ import { ProductItemComponent } from './product-item/product-item.component';
     ProductItemComponent
   ],
   imports: [
+    NgxPaginationModule,
     CommonModule,
     ProductsRoutingModule
-  ]
+  ],
+  exports: [NgxPaginationModule]
 })
 export class ProductsModule { }

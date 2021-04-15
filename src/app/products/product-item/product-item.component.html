@@ -1,10 +1,13 @@
 
-    <h4>
-        {{product.Name}}
-    </h4>
-    <img src = "{{product.ProductPicUrl}}">
-    <p>
-        {{product.Price}}$
-    </p>
-    <i class="fa fa-shopping-cart" ></i>
-
+<div class="container">
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{product.ProductPicUrl}}" alt="Card image cap">
+    <div class="card-body">
+        <hr>
+      <h2 class="card-title">{{product.Name}}</h2>
+     <b> <p class="card-text" style="color: red;">{{product.Price}}$</p></b>
+     <button class="btn float-right"> <i class="fa fa-shopping-cart  text-warning fa-3x"></i> </button>
+      <a href="#" class="btn btn-primary  mt-3">Details</a>
+    </div>
+  </div> 
+</div>

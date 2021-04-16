@@ -1,5 +1,13 @@
-<div>
-    <app-product-item *ngFor="let product of products" 
+<div *ngIf="products; else loadingTemplate">
+ 
+    <app-product-item  *ngFor="let product of products" 
     [product] ="product"
     ></app-product-item>
   </div>
+  <ng-template #loadingTemplate> 
+    <div class="text-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </ng-template>

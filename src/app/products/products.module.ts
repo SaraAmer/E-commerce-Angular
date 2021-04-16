@@ -6,6 +6,7 @@ import { ProductsComponent } from './products.component';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductsDetailsComponent } from './products-details/products-details.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ProductListComponent } from './product-list/product-list.component';
     ProductsComponent,
     ProductItemComponent,
     CartComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductsDetailsComponent
   ],
   imports: [
     CommonModule,

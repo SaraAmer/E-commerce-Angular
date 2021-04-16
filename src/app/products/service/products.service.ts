@@ -11,4 +11,7 @@ export class ProductsService {
   {
     return this._http.get(`${environment.baseUrl}/products`)
   }
+  getProductById(id) {
+    return this._http.get(`${environment.baseUrl}/products/${id}`);
+  }
 }

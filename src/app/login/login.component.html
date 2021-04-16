@@ -1,13 +1,31 @@
-<form [formGroup]="profileForm" (ngSubmit)="submit()" >
+<form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)" >
+  <div>
+
+    <label>
+      Name:
+      <input type="text" formControlName="name">
+    </label>
+  </div>
+  <div class="alert alert-danger p-1 mt-1"
+   *ngIf="loginForm.get('name').hasError('required') && loginForm.get('name').dirty">
+    Name is Required
+    </div>
+    <div class="alert alert-danger p-1 mt-1"
+   *ngIf="loginForm.get('name').hasError('minlength') && loginForm.get('name').dirty">
+    Name must be at least 3 chararcters
+    </div>
   
     <label>
-      First Name:
-      <input type="text" formControlName="firstName">
+      password:
+      <input type="password" formControlName="password">
     </label>
-  
-    <label>
-      Last Name:
-      <input type="text" formControlName="lastName">
-    </label>
-  
+    <div class="alert alert-danger p-1 mt-1"
+    *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').dirty">
+     Password is Required
+     </div>
+    <div>
+      <input class="btn btn-outline-success" type="submit" value="login" [disabled] = "!loginForm.valid">
+    </div>
+   
+
   </form>

@@ -1,13 +1,46 @@
 
 <div class="container">
-    <div class="card" style="width: 18rem;" *ngFor="let product of userCart">
-      <img class="card-img-top" src="{{product.productPic}}" alt="Card image cap">
-      <div class="card-body">
-          <hr>
-        <h2 class="card-title">{{product.productname}}</h2>
-       <b> <p class="card-text" style="color: red;">{{product.productPrice}}$</p></b>
-       <button class="btn float-right"> <i class="fa fa-trash text-warning fa-3x" (click)= "card()" id="cart"></i> </button>
-        <a href="#" class="btn btn-primary  mt-3">Details</a>
+
+    <div class="card container mt-3" *ngFor="let product of userCart">
+        <div class="row no-gutters">
+          <div class="col-5">
+           <img  class="border-right"src = "{{product.productPic}}">
+          </div>
+      
+          <div class="col-4">
+      
+      
+            <div class="card-body">
+      
+              <h2 class="card-title"> {{product.productname}}</h2>
+            
+      
+            </div>
+      
+          </div>
+          <div class="card float-right">
+              <div class="card-body">
+              <h5 class="card-title text-success border-bottom"><medium class="text-muted">Availabilty:</medium>{{product.Status}}</h5>
+                  <h1 class="card-text ">${{product.productPrice}}$ </h1>
+                  <label class="card-text">Quantity:</label>
+                  <input type="number" class="form-control" id="quantity" aria-describedby="number" value="{{product.quantity}}">
+                    <!-- <button class="btn btn-warning mt-3 " (click)= "card()" id="cart"> <i class="fa fa-cart-plus" ></i>
+                     Add To Card</button> -->
+              </div>
+            </div>
+      
+        </div>
+      
       </div>
-    </div> 
   </div>
+
+  <!-- <div class="card" style="width: 18rem;" *ngFor="let product of userCart">
+    <img class="card-img-top" src="{{product.productPic}}" alt="Card image cap">
+    <div class="card-body">
+        <hr>
+      <h2 class="card-title">{{product.productname}}</h2>
+     <b> <p class="card-text" style="color: red;">{{product.productPrice}}$</p></b>
+     <button class="btn float-right"> <i class="fa fa-trash text-warning fa-3x" (click)= "card()" id="cart"></i> </button>
+      <a href="#" class="btn btn-primary  mt-3">Details</a>
+    </div>
+  </div>  -->

@@ -1,9 +1,5 @@
-<!-- <ul class="list-group">
-    <li  *ngFor="let product of products">
-   {{product.ProductId}}
-    </li>
-  </ul> -->
-  <div class="container">
+
+  <div class="container" *ngIf="products; else loadingTemplate">
     <div class="d-flex flex-row-reverse bd-highlight mb-2">
       <div class="p-2 bd-highlight">
         <select (change)="onTableSizeChange($event)" class="custom-select">
@@ -15,7 +11,7 @@
     </div>
   <div class="card-group">
     <app-product-item *ngFor="let product of products | paginate : {
-      itemsPerPage: tableSize,
+      itemsPerPage:  tableSize,
       currentPage: page,
       totalItems: count
   };" 
@@ -32,3 +28,10 @@
     </pagination-controls>
   </div>
 </div>
+<ng-template #loadingTemplate> 
+  <div class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</ng-template>

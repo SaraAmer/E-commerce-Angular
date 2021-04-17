@@ -4,11 +4,13 @@ import { CartComponent } from './cart/cart.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductsDetailsComponent } from './products-details/products-details.component';
 import { ProductsComponent } from './products.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [{ path: '', component: ProductsComponent , children:[
   {path: 'cart' , component:CartComponent},
   {path : '' , component:ProductListComponent},
-  {path: ':id',component:ProductsDetailsComponent}
+  {path: ':id',component:ProductsDetailsComponent},
+
 ]}];
 
 @NgModule({

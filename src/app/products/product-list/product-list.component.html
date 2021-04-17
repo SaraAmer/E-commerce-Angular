@@ -11,7 +11,7 @@
     </div>
   <div class="card-group">
     <app-product-item *ngFor="let product of products | paginate : {
-      itemsPerPage: tableSize,
+      itemsPerPage:  tableSize,
       currentPage: page,
       totalItems: count
   };" 

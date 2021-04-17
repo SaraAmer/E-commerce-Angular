@@ -22,14 +22,35 @@
               <div class="card-body">
               <h5 class="card-title text-success border-bottom"><medium class="text-muted">Availabilty:</medium>{{product.Status}}</h5>
                   <h1 class="card-text ">${{product.productPrice}}$ </h1>
-                  <label class="card-text">Quantity:</label>
-                  <input type="number" class="form-control" id="quantity" aria-describedby="number" value="{{product.quantity}}">
+                  <!-- <label class="card-text">Quantity:</label>
+                  <input type="number" class="form-control" id="quantity" aria-describedby="number" value="{{product.quantity}}"> -->
                     <!-- <button class="btn btn-warning mt-3 " (click)= "card()" id="cart"> <i class="fa fa-cart-plus" ></i>
                      Add To Card</button> -->
               </div>
             </div>
       
         </div>
+        <div class="stepper-input stepper__input">
+          <button class="toggle-less" (click)="toggleLess()">
+            <img src="assets/minus.svg" [attr.alt]="ariaLabelLess" />
+          </button>
+          <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
+            {{renderedValue}}
+          </div>
+          <button class="toggle-more" (click)="toggleMore()">
+            <img src="assets/plus.svg" [attr.alt]="ariaLabelMore" />
+          </button>
+        </div>
+      
+      </div>
+      <br>
+      <div>
+        <strong>
+          <p>
+            Total : ${{total}}
+          </p>
+
+        </strong>
       
       </div>
   </div>

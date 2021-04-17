@@ -1,12 +1,14 @@
+<div class="card mt-4  offset-md-4 border border-primary" style="width: 30rem;">
 <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)" >
-  <div>
+<h2 class="card-header bg-primary ">Login</h2>
+  <div class="form-group mt-4 ml-1" >
 
-    <label>
+    <label class="font-weight-bold">
       Name:
       <input type="text" formControlName="name">
     </label>
   </div>
-  <div class="alert alert-danger p-1 mt-1"
+  <div class="alert alert-danger p-1 mt-1 "
    *ngIf="loginForm.get('name').hasError('required') && loginForm.get('name').dirty">
     Name is Required
     </div>
@@ -14,18 +16,20 @@
    *ngIf="loginForm.get('name').hasError('minlength') && loginForm.get('name').dirty">
     Name must be at least 3 chararcters
     </div>
-  
-    <label>
+  <div class="form-group ml-1">
+    <label class="font-weight-bold">
       password:
       <input type="password" formControlName="password">
     </label>
+    </div>
     <div class="alert alert-danger p-1 mt-1"
     *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').dirty">
      Password is Required
      </div>
-    <div>
-      <input class="btn btn-outline-success" type="submit" value="login" [disabled] = "!loginForm.valid">
+    <div class="d-flex justify-content-lg-center">
+      <input class="btn btn-outline-primary mb-4  " type="submit" value="login" [disabled] = "!loginForm.valid">
     </div>
-   
+
 
   </form>
+</div>

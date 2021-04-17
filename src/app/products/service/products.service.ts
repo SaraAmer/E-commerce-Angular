@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProductsService {
+  router: any;
 
   constructor(private _http: HttpClient) { }
   getProducts()
@@ -13,5 +14,8 @@ export class ProductsService {
   }
   getProductById(id) {
     return this._http.get(`${environment.baseUrl}/products/${id}`);
+  }
+  goToPage(pageNum) {
+    this.router.navigate(['product-list'], { queryParams: { page: pageNum } });
   }
 }

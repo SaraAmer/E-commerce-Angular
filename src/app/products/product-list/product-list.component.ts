@@ -14,28 +14,29 @@ export class ProductListComponent implements OnInit {
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
     constructor(private __productService : ProductsService) { }
-  
+
     ngOnInit(): void {
-  
+
       this.fetchProducts();
     }
   fetchProducts(){
     this.__productService.getProducts().subscribe((res: any) => {
       this.products=res.data
       console.log(res.total_pages)
-  
+      console.log(res.data)
+
     });
   }
-  
+
     onTableDataChange(event){
       this.page = event;
       this.fetchProducts();
-    }  
-  
+    }
+
     onTableSizeChange(event): void {
       this.tableSize = event.target.value;
       this.page = 1;
       this.fetchProducts();
-    }  
+    }
 
 }

@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
 value: number = 0;
 step: number = 1;
 min: number = 0;
-max: number ;
+max: number =10 ;
 symbol: string ="$";
 ariaLabelLess: string;
 ariaLabelMore: string;
@@ -25,22 +25,22 @@ ariaLabelMore: string;
   ngOnInit(): void {
       this._loginService.authUser.subscribe((data : string)=>{
       this.name = data
-     
+
      })
-   
+
     for (let i = 0; i<localStorage.length; i++) {
-      
+
       if(localStorage.key(i) != "loginUser")
       {
-       
-         this.cartProducts[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));  
+
+         this.cartProducts[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
           // console.log("product"+JSON.parse(localStorage.getItem(localStorage.key(i).userName)))
-     
+
       }
-      
+
     }
-   
-    
+
+
     for (let product of this.cartProducts)
     {
       if(product)
@@ -48,33 +48,33 @@ ariaLabelMore: string;
         if(product.userName == this.name)
         {
           this.userCart.push(product)
-         
+
         }
 
       }
-   
-    
+
+
     }
 
     // console.log('products:' + (this.cartProducts[0].userName))
      this.getotal();
      console.log(this.total)
 
- 
+
   }
 
   cartdelete(){
 
   }
-  getotal() 
+  getotal()
   {
     this.userCart.forEach((product) =>{
       console.log(product['productPrice']);
       console.log(product['quantity'])
      this.total += product['productPrice']*product['quantity'];
-   
+
     })
-    
+
   }
   toggleMore = () => {
     if (this.step + this.value <= this.max) {
@@ -82,7 +82,7 @@ ariaLabelMore: string;
       this.renderedValue = this.value.toString() + this.symbol;
     }
   };
-  
+
   toggleLess = () => {
     if (this.value - this.step >= this.min) {
       this.value = this.value - this.step;

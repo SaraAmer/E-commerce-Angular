@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { ProductsService } from '../products/service/products.service';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -10,8 +11,9 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 name = localStorage.getItem('loginUser');
-
-  constructor(public _loginservice : AuthService , private _router: Router) {
+@Output() newItemEvent = new EventEmitter<string>();
+searchvalue : string="";
+  constructor(public _loginservice : AuthService , private _router: Router , private _productsService : ProductsService) {
  
    }
 
@@ -30,5 +32,11 @@ logout()
   
    
    
+}
+search(value : string){
+  console.log("search")
+  this.newItemEvent.emit(value);
+  this._router.navigate(['search' ,this.searchvalue]);
+  
 }
 }

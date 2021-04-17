@@ -8,6 +8,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CartComponent } from './cart/cart.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductsDetailsComponent } from './products-details/products-details.component';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -17,7 +18,8 @@ import { ProductsDetailsComponent } from './products-details/products-details.co
     ProductItemComponent,
     CartComponent,
     ProductListComponent,
-    ProductsDetailsComponent
+    ProductsDetailsComponent,
+    SearchComponent
   ],
   imports: [
     NgxPaginationModule,

@@ -15,9 +15,9 @@
           </ul>
           <ul class="navbar-nav mx-auto ">
            <div class="input-group">
-           <input type="text" class="form-control" placeholder="Search ">
+           <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchvalue" #searchItem>
            <div class="input-group-append">
-           <button class="btn btn-primary" type="button">
+           <button class="btn btn-primary" type="button" (click)="search(searchItem.value)" >
             <i class="fa fa-search"></i>
           </button>
          </div>

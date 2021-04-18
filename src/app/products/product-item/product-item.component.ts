@@ -25,7 +25,10 @@ card(){
   if(this._loginService.isLoggedIn)
   {
     let product ={
+     
       userName :this.name,
+      productID:this.product.ProductId,
+      productQuantity:this.product.Quantity,
       productname : this.product.Name,
       productPrice : this.product.Price,
       productPic :  this.product.ProductPicUrl,
@@ -54,6 +57,24 @@ card(){
  // product =[this.name,this.product.Name , this.product.Price , this.product.ProductPicUrl]
  
 
+}
+isInCart(product){
+  if(localStorage.getItem(`${product.ProductId} ${this.name}`)){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+deleteFromCart(product)
+{
+  let answer =  confirm("are You Sure you want to delete This Item");
+  if(answer)
+  {
+    console.log(product.productId);
+    localStorage.removeItem(`${product.ProductId} ${this.name}`)
+    // window.location.reload()
+  }
 }
 
 }

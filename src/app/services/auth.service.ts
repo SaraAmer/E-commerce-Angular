@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor() { }
   private _authSubject = new BehaviorSubject<boolean>(false);
-  private _userName = new BehaviorSubject<string>("");
+  private _userName = new BehaviorSubject<string>(localStorage.getItem('loginUser'));
 
   get authSubjectObservable(): Observable<boolean> {
     return this._authSubject.asObservable();
@@ -23,14 +23,22 @@ export class AuthService {
   }
 
   get isLoggedIn(): boolean {
-    return this._authSubject.value;
+    if(localStorage.getItem('loginUser'))
+    {
+      return true;
+
+    }
+    else{
+      return false;
+    }
+    // return this._authSubject.value;
   }
   get isUserName(): string {
     return this._userName.value;
   }
   broadcastUser(value: string){
     this._userName.next(value);
-    console.log(value)
+ 
     localStorage.setItem('loginUser' , value)
   }
   get loginName():Observable<string> {

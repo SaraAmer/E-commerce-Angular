@@ -24,7 +24,7 @@
         <h5 class="card-title text-success border-bottom"><medium class="text-muted">Availabilty:</medium>{{product.Status}}</h5>
             <h1 class="card-text ">${{product.Price}} </h1>
             <label class="card-text">Quantity:</label>
-            <input type="number" class="form-control" id="quantity" aria-describedby="number">
+            <input type="text" class="form-control" id="quantity" name="productQuantity" [(ngModel)]="productQuantity">
               <button class="btn btn-warning mt-3 " (click)= "card()" id="cart"> <i class="fa fa-cart-plus" ></i>
                Add To Card</button>
         </div>

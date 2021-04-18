@@ -9,9 +9,13 @@ import { ProductsService } from '../service/products.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-products : Product[]
+ products : Product[]
  searchvalue : string;
-  constructor(private _productService : ProductsService , private route: ActivatedRoute) { }
+ quantity :string ="6";
+ constructor(private _productService : ProductsService , private route: ActivatedRoute) {
+
+   
+   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -26,4 +30,7 @@ products : Product[]
    
   });
 
-}}
+}
+
+
+}

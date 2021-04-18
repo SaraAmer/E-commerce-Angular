@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   {  
     if(form.valid){
   
-      this._authservice.broadcastAuthValue(true);
+      // this._authservice.broadcastAuthValue(true);
       this._authservice.broadcastUser(form.value.name)
       this._router.navigate(['products'])
       

@@ -20,7 +20,7 @@ searchvalue : string="";
   ngOnInit(): void {
    this._loginservice.authUser.subscribe((data : string)=>{
      this.name = data
-      console.log(data)
+     
     })
   }
 logout()

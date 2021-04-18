@@ -12,8 +12,8 @@ export class ProductListComponent implements OnInit {
   products:Product[]
   page = 1;
   count = 0;
-  tableSize = 3;
-  tableSizes = [3, 6, 9, 12];
+  tableSize = 12;
+  tableSizes = [12, 9, 6, 3];
     constructor(private __productService : ProductsService ) { }
 
     ngOnInit(): void {

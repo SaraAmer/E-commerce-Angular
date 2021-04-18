@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
 value: number = 0;
 step: number = 1;
 min: number = 0;
-max: number ;
+max: number = 10 ;
 symbol: string ="$";
 ariaLabelLess: string;
 ariaLabelMore: string;

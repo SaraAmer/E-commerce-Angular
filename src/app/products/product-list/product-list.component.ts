@@ -12,7 +12,7 @@ export class ProductListComponent implements OnInit {
   products:Product[]
   page = 1;
   count = 0;
-  tableSize = 7;
+  tableSize = 3;
   tableSizes = [3, 6, 9, 12];
     constructor(private __productService : ProductsService ) { }
   

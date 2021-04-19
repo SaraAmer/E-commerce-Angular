@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../models/products/product.model';
+import { CartService } from '../service/cart.service';
 import { ProductsService } from '../service/products.service';
 
 @Component({
@@ -11,8 +13,8 @@ import { ProductsService } from '../service/products.service';
 export class SearchComponent implements OnInit {
  products : Product[]
  searchvalue : string;
- quantity :string ="6";
- constructor(private _productService : ProductsService , private route: ActivatedRoute) {
+ quantity :Number=1;
+ constructor(private _productService : ProductsService , private route: ActivatedRoute , public cart: CartService) {
 
    
    }

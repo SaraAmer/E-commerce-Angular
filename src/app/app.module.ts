@@ -12,6 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import { QuantityNumberValidatorDirective } from './directives/quantity-number-validator.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +21,8 @@ import {MatIconModule} from '@angular/material/icon';
     AboutComponent,
     ContactUsComponent,
     LoginComponent,
+    QuantityNumberValidatorDirective,
+  
     
   ],
   imports: [

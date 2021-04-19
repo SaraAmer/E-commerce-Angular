@@ -86,9 +86,9 @@ export class CartComponent implements OnInit {
    {
     product.quantity++;
     this.total+= product.productPrice;
-    localStorage.removeItem(`${product.productID} ${this.name}`)
+    localStorage.removeItem(`${product.productId} ${this.name}`)
     
-    localStorage.setItem(`${product.productID} ${this.name}` , JSON.stringify(product));
+    localStorage.setItem(`${product.productId} ${this.name}` , JSON.stringify(product));
    }
    else{
      alert(`There is only ${product.productQuantity} available of this product in our store`)
@@ -101,14 +101,14 @@ export class CartComponent implements OnInit {
     {
      product.quantity--;
      this.total-= product.productPrice;
-     localStorage.removeItem(`${product.productID} ${this.name}`)
-     localStorage.setItem(`${product.productID} ${this.name}` , JSON.stringify(product));
+     localStorage.removeItem(`${product.productId} ${this.name}`)
+     localStorage.setItem(`${product.productId} ${this.name}` , JSON.stringify(product));
     }
     else{
      let answer =  confirm("are You Sure you want to delete This Item");
      if(answer)
      {
-       localStorage.removeItem(`${product.productID} ${this.name}`)
+       localStorage.removeItem(`${product.productId} ${this.name}`)
        window.location.reload()
      }
     }

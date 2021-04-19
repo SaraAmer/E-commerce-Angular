@@ -6,13 +6,13 @@
         <hr>
       <h2 class="card-title">{{product.Name}}</h2>
      <b> <p class="card-text" style="color: red;">{{product.Price}}$</p></b>
-     <button class="btn float-right"> <i class="fa fa-shopping-cart  text-warning fa-3x" (click)= "card()" id="cart" *ngIf="!isInCart(product);else content"></i> </button>
+     <button class="btn float-right"> <i class="fa fa-shopping-cart  text-warning fa-3x" (click)= "cart.cart(product , 1)" id="cart" *ngIf="!cart.isInCart(product);else content"></i> </button>
       <li [routerLink]="[product.ProductId]" class="btn btn-primary  mt-3">Details</li>
 
     </div>
   </div>
 </div>
 <ng-template #content>
-  <button class="btn float-right"><i class="fa fa-shopping-cart" style="font-size:48px;color:red" (click) ="deleteFromCart(product)"></i> </button>
+  <button class="btn float-right"><i class="fa fa-shopping-cart" style="font-size:48px;color:red" (click) ="cart.deleteFromCart(product)"></i> </button>
 </ng-template>
 

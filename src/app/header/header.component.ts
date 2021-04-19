@@ -30,7 +30,7 @@ logout()
    this._loginservice.broadcastUser("");
    this._loginservice.broadcastAuthValue(false)
   
-   
+   window.location.reload();
    
 }
 search(value : string){

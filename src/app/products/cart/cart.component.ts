@@ -14,11 +14,7 @@ export class CartComponent implements OnInit {
    total :number = 0;
    name = localStorage.getItem('loginUser');
    renderedValue: string ="0";
-   value: number = 0;
-   step: number = 1;
-   min: number = 0;
-   max: number = 10 ;
-   symbol: string ="$";
+ 
    ariaLabelLess: string;
    ariaLabelMore: string;
   constructor(private _loginService:AuthService) { }

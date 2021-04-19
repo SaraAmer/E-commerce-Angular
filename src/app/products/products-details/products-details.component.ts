@@ -18,7 +18,7 @@ export class ProductsDetailsComponent implements OnInit {
   productQuantity :Number = 1;
   constructor(private _route: ActivatedRoute,
     private _productService:ProductsService,
-  
+    private _router:Router,
     public cart:CartService
   ) { 
     
@@ -29,6 +29,8 @@ export class ProductsDetailsComponent implements OnInit {
       if (paramMap.has('id')) {
         this._productService.getProductById(paramMap.get('id')).subscribe((res: any) => {
           this.product = res.data;
+        },(err:any)=>{
+          this._router.navigate(['error'])
         });
       }
     });

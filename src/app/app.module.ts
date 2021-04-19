@@ -13,6 +13,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import { QuantityNumberValidatorDirective } from './directives/quantity-number-validator.directive';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { QuantityNumberValidatorDirective } from './directives/quantity-number-v
     ContactUsComponent,
     LoginComponent,
     QuantityNumberValidatorDirective,
+    ErrorComponent,
   
     
   ],

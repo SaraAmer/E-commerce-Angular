@@ -28,7 +28,7 @@ logout()
   this._router.navigate(['/products'])
    localStorage.removeItem('loginUser');
    this._loginservice.broadcastUser("");
-   this._loginservice.broadcastAuthValue(false)
+  //  this._loginservice.broadcastAuthValue(false)
   
    this._router.navigate['/products']
    

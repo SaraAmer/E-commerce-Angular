@@ -23,10 +23,21 @@
             <div class="card-body">
             <h5 class="card-title text-success border-bottom"><medium class="text-muted">Availabilty:</medium>{{product.Status}}</h5>
                 <h1 class="card-text ">${{product.Price}} </h1>
-                <label class="card-text">Quantity:</label>
-                <input type="number" class="form-control" id="quantity" aria-describedby="number" value="{{product.Quantity}}">
-                  <button class="btn btn-warning mt-3 " (click)= "card()" id="cart"> <i class="fa fa-cart-plus" ></i>
-                   Add To Card</button>
+                <label class="card-text"  *ngIf="!cart.isInCart(product)">Quantity:</label>
+                <div class="input-group">
+                  <input type="number" class="form-control"  name="quantity" *ngIf="!cart.isInCart(product)"
+                  [(ngModel)]="quantity"
+                  >
+                
+              
+                </div>
+               
+                  <button class="btn btn-warning mt-3 " (click)= "cart.cart(product,quantity)" id="cart"  *ngIf="!cart.isInCart(product)"> <i class="fa fa-cart-plus" ></i>
+                   Add To Cart</button>
+                   <button class="btn btn-danger mt-3 " (click) ="cart.deleteFromCart(product)" *ngIf="cart.isInCart(product)"> 
+                    <i class="fa fa-cart-plus" ></i>
+               Delete From Cart
+                  </button>
             </div>
           </div>
     
@@ -38,7 +49,12 @@
     Not found
 </h1>
     </div>
+
+   
     </div>
     
     <ng-template #loadingTemplate> Loading... </ng-template>
+    <ng-template #content>
+ 
+    </ng-template>
     

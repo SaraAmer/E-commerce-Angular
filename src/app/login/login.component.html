@@ -2,10 +2,10 @@
   <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)">
     <h2 class="card-header bg-primary">Login</h2>
     <tr>
-      <div class="form-group mt-4 ml-1">
+      <div class="form-group mt-4 ml-1 row">
         <td>
-          <label class="font-weight-bold"> Name: </label>
-          <input type="text" formControlName="name" />
+          <label class="font-weight-bold col-4"> Name: </label>
+          <input type="text" formControlName="name" class="col-8" />
         </td>
       </div>
     </tr>
@@ -28,11 +28,11 @@
       Name must be at least 3 chararcters
     </div>
     <tr>
-      <div class="form-group ml-1">
+      <div class="form-group mt-4 ml-1 row">
         <td>
-          <label class="font-weight-bold"> password: </label>
+          <label class="font-weight-bold col-4"> password: </label>
 
-          <input type="password" formControlName="password" />
+          <input type="password" formControlName="password" class="col-8" />
         </td>
       </div>
     </tr>

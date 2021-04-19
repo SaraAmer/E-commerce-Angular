@@ -22,14 +22,15 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this._loginservice.authUser.subscribe((data: string) => {
       this.name = data;
-      console.log(data);
     });
   }
   logout() {
     this._router.navigate(['/products']);
     localStorage.removeItem('loginUser');
     this._loginservice.broadcastUser('');
-    this._loginservice.broadcastAuthValue(false);
+    //  this._loginservice.broadcastAuthValue(false)
+
+    this._router.navigate['/products'];
   }
   search(value: string) {
     console.log('search');

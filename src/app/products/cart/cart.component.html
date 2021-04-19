@@ -1,5 +1,5 @@
  <div class="card container mt-3" *ngFor="let product of userCart">
-        <div class="row no-gutters">
+  <div class="row no-gutters">
         <div class="col-md-5 col-lg-3 col-xl-3">
            <img src = "{{product.productPic}}" style='width:150px'>
           </div>
@@ -18,31 +18,36 @@
           <div class="  card-body float-right ">
 
 
-                  <h1 class=" ">{{product.productPrice}}$ </h1>
+                  <h1 >{{product.productPrice}}$ </h1>
                   <!-- <label class="card-text">Quantity:</label>
                   <input type="number" class="form-control" id="quantity" aria-describedby="number" value="{{product.quantity}}"> -->
                     <!-- <button class="btn btn-warning mt-3 " (click)= "card()" id="cart"> <i class="fa fa-cart-plus" ></i>
                      Add To Card</button> -->
 
+
             </div>
 
-        </div>
-      <div class="card-body d-flex justify-content-end">
+
+      <div class="card-body  justify-content-end">
+
+
         <div class="stepper-input stepper__input">
-          <button class="toggle-less" (click)="toggleLess()">
+          <button class="toggle-less" (click)="toggleLess(product)">
             <img src="assets/minus.svg" [attr.alt]="ariaLabelLess" />
           </button>
           <div class="stepper-input-field" name="range-value" aria-atomic="true" aria-live="polite" aria-relevant="all">
-            {{renderedValue}}
+            {{product.quantity}}
           </div>
-          <button class="toggle-more" (click)="toggleMore()">
+          <button class="toggle-more" (click)="toggleMore(product)">
             <img src="assets/plus.svg" [attr.alt]="ariaLabelMore" />
           </button>
         </div>
 
+
       </div>
 
 
+</div>
  </div>
 
     <div class="card container mt-3 bg-light " >
@@ -53,8 +58,8 @@
           </h2>
 
         </strong>
- </div>
- </div>
+   </div>
+    </div>
 
 
 

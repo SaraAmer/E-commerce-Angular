@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../models/products/product.model';
+import { CartService } from '../service/cart.service';
 import { ProductsService } from '../service/products.service';
 
 @Component({
@@ -9,9 +11,13 @@ import { ProductsService } from '../service/products.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-products : Product[]
+ products : Product[]
  searchvalue : string;
-  constructor(private _productService : ProductsService , private route: ActivatedRoute) { }
+ quantity :Number=1;
+ constructor(private _productService : ProductsService , private route: ActivatedRoute , public cart: CartService , private _router:Router) {
+
+   
+   }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -21,9 +27,15 @@ products : Product[]
         this._productService.getSearched(this.searchvalue).subscribe((res:any)=>{
           this.products= res.data;
           console.log(this.products.length)
+        },(err:any)=>
+        {
+          this._router.navigate(['error'])
         });
       }
    
   });
 
-}}
+}
+
+
+}

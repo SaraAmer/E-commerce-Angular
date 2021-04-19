@@ -1,14 +1,38 @@
-
+<!-- <div class="container row">
+  <div class="card col-12" style="width: 18rem"> -->
 <div class="container">
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{product.ProductPicUrl}}" alt="Card image cap">
+  <div class="card" style="width: 18rem">
+    <img
+      class="card-img-top"
+      src="{{ product.ProductPicUrl }}"
+      alt="Card image cap"
+    />
     <div class="card-body">
-        <hr>
-      <h2 class="card-title">{{product.Name}}</h2>
-     <b> <p class="card-text" style="color: red;">{{product.Price}}$</p></b>
-     <button class="btn float-right"> <i class="fa fa-shopping-cart  text-warning fa-3x" (click)= "card()" id="cart"></i> </button>
-      <li [routerLink]="[product.ProductId]" class="btn btn-primary  mt-3">Details</li>
-
+      <hr />
+      <h2 class="card-title">{{ product.Name }}</h2>
+      <b>
+        <p class="card-text" style="color: red">{{ product.Price }}$</p></b
+      >
+      <button class="btn float-right">
+        <i
+          class="fa fa-shopping-cart text-warning fa-3x"
+          (click)="cart.cart(product, 1)"
+          id="cart"
+          *ngIf="!cart.isInCart(product); else content"
+        ></i>
+      </button>
+      <li [routerLink]="[product.ProductId]" class="btn btn-primary mt-3">
+        Details
+      </li>
     </div>
   </div>
 </div>
+<ng-template #content>
+  <button class="btn float-right">
+    <i
+      class="fa fa-shopping-cart"
+      style="font-size: 48px; color: red"
+      (click)="cart.deleteFromCart(product)"
+    ></i>
+  </button>
+</ng-template>

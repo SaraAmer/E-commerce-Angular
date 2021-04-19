@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../service/products.service';
 import { Product } from '../models/products/product.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,9 +13,9 @@ export class ProductListComponent implements OnInit {
   products:Product[]
   page = 1;
   count = 0;
-  tableSize = 3;
-  tableSizes = [3, 6, 9, 12];
-    constructor(private __productService : ProductsService ) { }
+  tableSize = 12;
+  tableSizes = [12, 9, 6, 3];
+    constructor(private __productService : ProductsService , private _router:Router) { }
 
     ngOnInit(): void {
 
@@ -28,6 +29,10 @@ export class ProductListComponent implements OnInit {
     this.products=res.data
 
 
+    } , (err:any)=>{
+      this._router.navigate(['error']);
+
+    
     });
   }
 

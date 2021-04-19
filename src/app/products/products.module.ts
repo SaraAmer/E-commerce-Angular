@@ -9,6 +9,7 @@ import { CartComponent } from './cart/cart.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductsDetailsComponent } from './products-details/products-details.component';
 import { SearchComponent } from './search/search.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,12 +20,14 @@ import { SearchComponent } from './search/search.component';
     CartComponent,
     ProductListComponent,
     ProductsDetailsComponent,
-    SearchComponent
+    SearchComponent,
+    
   ],
   imports: [
     NgxPaginationModule,
     CommonModule,
-    ProductsRoutingModule
+    ProductsRoutingModule,
+    FormsModule
   ],
   exports: [NgxPaginationModule]
 })

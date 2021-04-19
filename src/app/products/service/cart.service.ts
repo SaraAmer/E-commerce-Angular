@@ -19,6 +19,7 @@ export class CartService implements OnInit{
 
   cart(productTOCheck:Product , quantity)
   {
+    console.log(this.name)
     if(productTOCheck.Quantity>=quantity)
     {
       if(this._loginService.isLoggedIn)

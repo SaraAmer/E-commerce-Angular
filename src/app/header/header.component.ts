@@ -30,7 +30,7 @@ logout()
    this._loginservice.broadcastUser("");
    this._loginservice.broadcastAuthValue(false)
   
-   window.location.reload();
+   this._router.navigate['/products']
    
 }
 search(value : string){

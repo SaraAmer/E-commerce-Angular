@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   providedIn: 'root'
 })
 export class ProductsService {
+  router: any;
 
   constructor(private _http: HttpClient , private _activatedRoute: ActivatedRoute) { }
   getProducts(page , limit)
@@ -14,7 +15,7 @@ export class ProductsService {
     let params = new HttpParams();
     this._activatedRoute.queryParams
     params = params.append('page', page);
-    
+
     params = params.append('limit', limit);
     return this._http.get(`${environment.baseUrl}/products` , {params})
   }

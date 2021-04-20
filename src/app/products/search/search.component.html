@@ -35,8 +35,8 @@
 
                   <button class="btn btn-warning mt-3 " (click)= "cart.cart(product,quantity)" id="cart"  *ngIf="!cart.isInCart(product)"> <i class="fa fa-cart-plus" ></i>
                    Add To Cart</button>
-                   <button class="btn btn-danger mt-3 mr-45 " (click) ="cart.deleteFromCart(product)" *ngIf="cart.isInCart(product)">
-                    <i class="fa fa-cart-plus" ></i>
+                   <button class="btn btn-danger mt-3 mr-4 " (click) ="cart.deleteFromCart(product)" *ngIf="cart.isInCart(product)">
+                    <i class="fa fa-times-circle"></i>
                   Delete From Cart
                   </button>
             </div>
@@ -60,7 +60,11 @@
 
 </div>
 
-    <ng-template #loadingTemplate> Loading... </ng-template>
+    <ng-template #loadingTemplate><div class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div></ng-template>
     <ng-template #content>
 
     </ng-template>

@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { QuantityNumberValidatorDirective } from './directives/quantity-number-validator.directive';
 import { ErrorComponent } from './error/error.component';
 
@@ -24,8 +24,6 @@ import { ErrorComponent } from './error/error.component';
     LoginComponent,
     QuantityNumberValidatorDirective,
     ErrorComponent,
-  
-    
   ],
   imports: [
     NgxPaginationModule,
@@ -37,14 +35,10 @@ import { ErrorComponent } from './error/error.component';
     ReactiveFormsModule,
     FormsModule,
     MatMenuModule,
-    MatIconModule
-    
-
+    MatIconModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
-  ,
-  exports: [NgxPaginationModule]
+  bootstrap: [AppComponent],
+  exports: [HeaderComponent, NgxPaginationModule],
 })
-
-export class AppModule { }
+export class AppModule {}

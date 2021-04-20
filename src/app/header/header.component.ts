@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 name = localStorage.getItem('loginUser');
 cartProducts=[];
 userCart=[];
-length :Number= 1;
+length :Number= 0;
 @Output() newItemEvent = new EventEmitter<string>();
 searchvalue : string="";
   constructor(public _loginservice : AuthService , private _router: Router , 

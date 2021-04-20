@@ -15,6 +15,9 @@ export class ProductListComponent implements OnInit {
   count = 0;
   tableSize = 12;
   tableSizes = [12, 9, 6, 3];
+  category = new Set();
+  setValue =[];
+  chosenCategory: string="";
     constructor(private __productService : ProductsService , private _router:Router) { }
 
     ngOnInit(): void {
@@ -23,11 +26,11 @@ export class ProductListComponent implements OnInit {
     }
   fetchProducts(){
 
-    this.__productService.getProducts(this.page , this.tableSize).subscribe((res: any) => {
+    this.__productService.getProducts(this.page , this.tableSize , this.chosenCategory).subscribe((res: any) => {
     console.log(res.total_items)
     this.count = res.total_items
     this.products=res.data
-
+ 
 
     } , (err:any)=>{
       this._router.navigate(['error']);
@@ -46,6 +49,21 @@ export class ProductListComponent implements OnInit {
       this.tableSize = event.target.value;
       this.page = 1;
       this.fetchProducts();
+    }
+    onCategoryChange(event): void {
+this.chosenCategory=event.target.value;
+this.fetchProducts();
+   
+    }
+    categoryfill()
+    {
+      this.products.forEach((product)=>
+      {
+        this.category.add(product.Category);
+
+      })
+      return Array.from(this.category.values())
+     
     }
 
 }

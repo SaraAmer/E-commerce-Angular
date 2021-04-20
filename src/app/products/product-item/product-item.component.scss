@@ -1,6 +1,7 @@
-i{
+i {
     cursor: pointer;
 }
+
 .stepper__input {
     width: 100%;
     max-width: 270px;
@@ -13,9 +14,9 @@ i{
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-  }
-  
-  .stepper__input .stepper-input-field {
+}
+
+.stepper__input .stepper-input-field {
     color: #16489d;
     font-family: Arial, sans-serif;
     font-size: 16px;
@@ -35,9 +36,9 @@ i{
     -ms-flex-positive: 1;
     flex-grow: 1;
     min-width: calc(100% - 25px - 14px);
-  }
-  
-  .stepper__input button {
+}
+
+.stepper__input button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,4 +51,4 @@ i{
     color: #fff;
     user-select: none;
     border: none;
-  }
+}

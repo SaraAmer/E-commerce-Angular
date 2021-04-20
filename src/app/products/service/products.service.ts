@@ -9,7 +9,7 @@ export class ProductsService {
   router: any;
 
   constructor(private _http: HttpClient , private _activatedRoute: ActivatedRoute) { }
-  getProducts(page , limit)
+  getProducts(page , limit , catagory)
   {
     console.log("page" +page)
     let params = new HttpParams();
@@ -17,6 +17,7 @@ export class ProductsService {
     params = params.append('page', page);
 
     params = params.append('limit', limit);
+    params = params.append('category', catagory);
     return this._http.get(`${environment.baseUrl}/products` , {params})
   }
   getProductById(id) {

@@ -7,6 +7,12 @@
             {{ size }}
           </option>
         </select>
+        <select  class="custom-select" (change)="onCategoryChange($event)">
+          <option value="" disabled selected> Filter By Category</option>
+          <option *ngFor="let product of  categoryfill()" ngValue="hosenCategory" >
+          {{product}}
+          </option>
+        </select>
       </div>
     </div>
   <div class="card-group">

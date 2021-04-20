@@ -1,9 +1,9 @@
-<div class="container row">
-  <div class="card col-12" style="width: 18rem">
+<div class="container ">
+  <div class="card mb-4" style="width: 18rem">
     <!-- <div class="container">
   <div class="card" style="width: 18rem"> -->
     <img
-      class="card-img-top"
+      class="card-body" style="height:14rem"
       src="{{ product.ProductPicUrl }}"
       alt="Card image cap"
     />
@@ -15,7 +15,7 @@
       >
       <button class="btn float-right">
         <i
-          class="fa fa-shopping-cart text-warning fa-3x"
+          class="fa fa-cart-plus text-warning fa-3x"
           (click)="cart.cart(product, 1)"
           id="cart"
           *ngIf="!cart.isInCart(product); else content"
@@ -28,10 +28,11 @@
   </div>
 </div>
 <ng-template #content>
+
   <button class="btn float-right">
     <i
-      class="fa fa-shopping-cart"
-      style="font-size: 48px; color: red"
+       class="fa fa-times-circle text-danger fa-2x"
+
       (click)="cart.deleteFromCart(product)"
     ></i>
   </button>

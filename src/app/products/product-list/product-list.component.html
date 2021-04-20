@@ -9,7 +9,8 @@
         </select>
         <select  class="custom-select" (change)="onCategoryChange($event)">
           <option value="" disabled selected> Filter By Category</option>
-          <option *ngFor="let product of  categoryfill()" ngValue="hosenCategory" >
+          <option value="">All</option>
+          <option *ngFor="let product of  categoryfill()" ngValue="chosenCategory" >
           {{product}}
           </option>
         </select>

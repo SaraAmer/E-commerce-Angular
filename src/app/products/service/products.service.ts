@@ -8,13 +8,12 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductsService {
   router: any;
 
-  constructor(private _http: HttpClient , private _activatedRoute: ActivatedRoute) { }
-  getProducts(page , limit , catagory)
+  constructor(private _http: HttpClient ) { }
+  getProducts( limit , catagory)
   {
-    console.log("page" +page)
+    
     let params = new HttpParams();
-    this._activatedRoute.queryParams
-    params = params.append('page', page);
+
 
     params = params.append('limit', limit);
     params = params.append('category', catagory);
@@ -26,8 +25,9 @@ export class ProductsService {
   getSearched(productName) {
     console.log(productName)
     let params = new HttpParams();
-     this._activatedRoute.queryParams
+     
     params = params.append('q', productName);
     return this._http.get(`${environment.baseUrl}/products` , { params })
   }
+ 
 }

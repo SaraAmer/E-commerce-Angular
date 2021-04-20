@@ -1,6 +1,7 @@
 import { keyframes } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { CartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,13 +12,13 @@ export class CartComponent implements OnInit {
    cartProducts = [];
    userCart=[];
    quantity =[];
-   total :number = 0;
+  
    name = localStorage.getItem('loginUser');
-   renderedValue: string ="0";
+   renderedValue: string ="0";this
  
    ariaLabelLess: string;
    ariaLabelMore: string;
-  constructor(private _loginService:AuthService) { }
+  constructor(private _loginService:AuthService , public cart:CartService) { }
 
   ngOnInit(): void {
       this._loginService.authUser.subscribe((data : string)=>{
@@ -54,37 +55,26 @@ export class CartComponent implements OnInit {
     }
 
     
-     this.getotal();
+ 
     
 
 
   }
 
-  cartdelete(){
 
-  }
-  getotal()
-  {
-    this.userCart.forEach((product) =>{
-      console.log(product['productPrice']);
-      console.log(product['quantity'])
-     this.total += product['productPrice']*product['quantity'];
-    
 
-    
-
-    })
-
-  }
   toggleMore = (product) => {
  
    if(product.quantity < product.productQuantity)
    {
     product.quantity++;
-    this.total+= product.productPrice;
+    
     localStorage.removeItem(`${product.productId} ${this.name}`)
     
     localStorage.setItem(`${product.productId} ${this.name}` , JSON.stringify(product));
+
+    this.cart.broadcartQuantity()
+    this.cart.settotal();
    }
    else{
      alert(`There is only ${product.productQuantity} available of this product in our store`)
@@ -96,9 +86,10 @@ export class CartComponent implements OnInit {
     if(product.quantity > 1)
     {
      product.quantity--;
-     this.total-= product.productPrice;
+ 
      localStorage.removeItem(`${product.productId} ${this.name}`)
      localStorage.setItem(`${product.productId} ${this.name}` , JSON.stringify(product));
+
     }
     else{
      let answer =  confirm("are You Sure you want to delete This Item");
@@ -109,7 +100,8 @@ export class CartComponent implements OnInit {
      }
     }
 
-
+    this.cart.broadcartQuantity()
+    this.cart.settotal();
   
   };
 

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { CartService } from '../products/service/cart.service';
 import { ProductsService } from '../products/service/products.service';
 import { AuthService } from '../services/auth.service';
 
@@ -11,9 +12,14 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 name = localStorage.getItem('loginUser');
+cartProducts=[];
+userCart=[];
+length :Number= 1;
 @Output() newItemEvent = new EventEmitter<string>();
 searchvalue : string="";
-  constructor(public _loginservice : AuthService , private _router: Router , private _productsService : ProductsService) {
+  constructor(public _loginservice : AuthService , private _router: Router , 
+    private _productsService : ProductsService ,
+    private cart:CartService) {
  
    }
 
@@ -22,6 +28,12 @@ searchvalue : string="";
      this.name = data
      
     })
+    this.cart.quantity.subscribe((data : Number)=>{
+      this.length = data
+      
+     })
+ 
+
   }
 logout()
 {

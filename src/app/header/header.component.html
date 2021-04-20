@@ -36,7 +36,15 @@
            <li class="nav-item" *ngIf="_loginservice.isLoggedIn">
             <a class="nav-link" [routerLink]="['/products' , 'cart']" routerLinkActive="router-link-active" >
               <i class="fa fa-shopping-cart  text-warning fa-2x" ></i>
+              <span class="badge">{{length}}</span>
+              <span>
+                <strong>
+                  {{cart.gettotal()}}$
+                </strong>
+               
+              </span>
             </a>
+         
           </li>
           <li class="nav-item ">
             <a class="nav-link" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" *ngIf="_loginservice.isLoggedIn">
